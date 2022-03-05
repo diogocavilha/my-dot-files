@@ -11,6 +11,13 @@ alias aliasedit="vim ~/.bash_aliases"
 alias aliasshow="ccat ~/.bash_aliases"
 alias json2yaml="python -c 'import sys, yaml, json; yaml.safe_dump(json.load(sys.stdin), sys.stdout, default_flow_style=False)' < "
 alias aptfix="sudo rm -rf /var/lib/dpkg/info/a.*; sudo rm -rf /var/lib/dpkg/info/*.*; sudo apt-get clean; sudo apt-get install -f; sudo apt-get update"
+alias getip="hostname -I | cut -d ' ' -f 1"
+alias bashlog_truncate="truncate -s 0 /var/log/bash.log"
+alias bashlog_follow="tail -f /var/log/bash.log"
+alias docker_run_mysql='docker run -p 3306:3306 --name local_mysql -v ~/.docker_dbdata/mysql:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=admin -d mysql:5.7 --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci'
+alias docker_run_postgresql='docker run -p 5432:5432 --name local_postgres -v ~/.docker_dbdata/postgresql:/var/lib/postgresql/data -e POSTGRES_PASSWORD=admin -d postgres:10-alpine'
+alias docker_run_mongo='docker run -p 27017:27017 -p 8089:8089 --name local_mongo -v ~/.docker_dbdata/mongo:/data/db -e MONGO_INITDB_ROOT_USERNAME="root" -e MONGO_INITDB_ROOT_PASSWORD="admin" -d mongo:latest'
+
 alias ggource="gource \
     --seconds-per-day 5 \
     --auto-skip-seconds 0.1 \
@@ -67,10 +74,6 @@ s() {
     fi
 }
 
-getip() {
-    hostname -I | awk '{print $1}'
-}
-
 timestamp2ansi() {
     date --date "@${1}" +"%Y-%m-%d %T"
 }
@@ -81,14 +84,6 @@ ansi2timestamp() {
 
 bashlog() {
     echo "$(date +"%Y-%m-%d %T") $1" >> /var/log/bash.log
-}
-
-bashlog_truncate() {
-    truncate -s 0 /var/log/bash.log
-}
-
-bashlog_follow() {
-    tail -f /var/log/bash.log
 }
 
 rgrep() {
@@ -120,12 +115,11 @@ docker_execute() {
 }
 
 docker_stopall() {
-    docker stop "$(docker ps -aq)" && docker rm "$(docker ps -aq)"
+    for container_hash in $(docker ps -aq); do
+        docker stop "$container_hash"
+        docker rm "$container_hash"
+    done
 }
-
-alias docker_run_mysql='docker run -p 3307:3306 --name local_mysql -e MYSQL_ROOT_PASSWORD=admin -d mysql:5.7 --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci'
-alias docker_run_mongo='docker run -p 27017:27017 -p 8089:8089 --name local_mongo -e MONGO_INITDB_ROOT_USERNAME="root" -e MONGO_INITDB_ROOT_PASSWORD="admin" -d mongo:latest'
-alias docker_run_postgresql='docker run -p 5432:5432 --name local_postgres -e POSTGRES_PASSWORD=admin -d postgres:10-alpine'
 
 docker_run_rabbitmq() {
 	local user
@@ -142,11 +136,9 @@ docker_run_rabbitmq() {
         -e RABBITMQ_DEFAULT_PASS="$pass" \
         -d rabbitmq:3.8-management-alpine
 
-	echo ""
-	echo "http://localhost:15672/#/"
-	echo "User: $user"
-	echo "Pass: $pass"
-	echo ""
+    printf "\n%s\n" "http://localhost:15672/#/"
+	printf "User: %s\n" "$user"
+	printf "Pass: %s\n\n" "$pass"
 }
 
 if [ -f ~/.bash_aliases_company ]; then

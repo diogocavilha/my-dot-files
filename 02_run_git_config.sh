@@ -7,4 +7,3 @@ $(git config --global core.editor "vim")
 $(git config --global diff.tool meld)
 $(git config --global push.default simple)
 $(git config --global mergetool.keepBackup false)
-
