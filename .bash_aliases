@@ -14,9 +14,9 @@ alias aptfix="sudo rm -rf /var/lib/dpkg/info/a.*; sudo rm -rf /var/lib/dpkg/info
 alias getip="hostname -I | cut -d ' ' -f 1"
 alias bashlog_truncate="truncate -s 0 /var/log/bash.log"
 alias bashlog_follow="tail -f /var/log/bash.log"
-alias docker_run_mysql='docker run -p 3306:3306 --name local_mysql -v ~/.docker_dbdata/mysql:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=admin -d mysql:5.7 --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci'
-alias docker_run_postgresql='docker run -p 5432:5432 --name local_postgres -v ~/.docker_dbdata/postgresql:/var/lib/postgresql/data -e POSTGRES_PASSWORD=admin -d postgres:10-alpine'
-alias docker_run_mongo='docker run -p 27017:27017 -p 8089:8089 --name local_mongo -v ~/.docker_dbdata/mongo:/data/db -e MONGO_INITDB_ROOT_USERNAME="root" -e MONGO_INITDB_ROOT_PASSWORD="admin" -d mongo:latest'
+alias docker_run_mysql="docker run -p 3306:3306 --name local_mysql -v ~/.docker_dbdata/mysql:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=admin -d mysql:5.7 --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci"
+alias docker_run_postgresql="docker run -p 5432:5432 --name local_postgres -v ~/.docker_dbdata/postgresql:/var/lib/postgresql/data -e POSTGRES_PASSWORD=admin -d postgres:10-alpine"
+alias docker_run_mongo="docker run -p 27017:27017 -p 8089:8089 --name local_mongo -v ~/.docker_dbdata/mongo:/data/db -e MONGO_INITDB_ROOT_USERNAME=root -e MONGO_INITDB_ROOT_PASSWORD=admin -d mongo:latest"
 
 alias ggource="gource \
     --seconds-per-day 5 \
