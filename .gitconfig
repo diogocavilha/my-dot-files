@@ -1,0 +1,28 @@
+[user]
+	email = diogocavilha@gmail.com
+	name = Diogo Alexsander Cavilha
+[core]
+	pager = 
+	editor = vim
+[interactive]
+	diffFilter = 
+[color]
+	ui = true
+[diff]
+	tool = meld
+[push]
+	default = simple
+[mergetool]
+	keepBackup = false
+[color "diff"]
+	meta = yellow
+	old = red
+	new = green
+	meta = yellow
+	old = red
+	new = green
+[color "status"]
+	added = green
+	changed = yellow
+	untracked = cyan
+	added = green
