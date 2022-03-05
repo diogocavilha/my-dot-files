@@ -37,6 +37,7 @@
     [[[window0]]]
       type = Window
       parent = ""
+      size = 1600, 800
     [[[child1]]]
       type = Terminal
       parent = window0
