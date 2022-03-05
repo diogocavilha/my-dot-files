@@ -10,7 +10,6 @@ alias bashreload=". ~/.bashrc"
 alias aliasedit="vim ~/.bash_aliases"
 alias aliasshow="ccat ~/.bash_aliases"
 alias json2yaml="python -c 'import sys, yaml, json; yaml.safe_dump(json.load(sys.stdin), sys.stdout, default_flow_style=False)' < "
-alias x="chmod +x"
 alias aptfix="sudo rm -rf /var/lib/dpkg/info/a.*; sudo rm -rf /var/lib/dpkg/info/*.*; sudo apt-get clean; sudo apt-get install -f; sudo apt-get update"
 alias ggource="gource \
     --seconds-per-day 5 \
@@ -25,6 +24,14 @@ alias ggource="gource \
     --disable-bloom \
     --key \
     --highlight-users"
+
+x() {
+    local file_path
+    file_path="$1"
+
+    chmod +x "$file_path"
+    ls -l "$file_path"
+}
 
 colors_show() {
     local color=16;
