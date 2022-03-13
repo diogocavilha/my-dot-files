@@ -11,4 +11,6 @@ apt install -y vim \
     gource \
     curl \
     xsel \
-    lynx
+    lynx \
+    qemu \
+    aqemu

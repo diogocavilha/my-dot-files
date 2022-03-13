@@ -17,6 +17,10 @@ alias bashlog_follow="tail -f /var/log/bash.log"
 alias docker_run_mysql="docker run -p 3306:3306 --name local_mysql -v ~/.docker_dbdata/mysql:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=admin -d mysql:5.7 --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci"
 alias docker_run_postgresql="docker run -p 5432:5432 --name local_postgres -v ~/.docker_dbdata/postgresql:/var/lib/postgresql/data -e POSTGRES_PASSWORD=admin -d postgres:10-alpine"
 alias docker_run_mongo="docker run -p 27017:27017 -p 8089:8089 --name local_mongo -v ~/.docker_dbdata/mongo:/data/db -e MONGO_INITDB_ROOT_USERNAME=root -e MONGO_INITDB_ROOT_PASSWORD=admin -d mongo:latest"
+alias i3config="vim ~/.config/i3/config"
+alias i3statusconfig="vim ~/.config/i3/i3status.conf"
+alias vm_live_run="qemu-system-x86_64 --enable-kvm -m 4G -smp 4 -name 'Live S.O' -boot d -cdrom " # Param: ISO path
+alias vm_windows10_run='qemu-system-x86_64 --enable-kvm -m 4G -smp 4 -boot d -hda ~/.qemu/windows10.qcow2'
 
 alias ggource="gource \
     --seconds-per-day 5 \
