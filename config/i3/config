@@ -50,9 +50,6 @@ bindsym $mod+h split h
 # split in vertical orientation
 bindsym $mod+v split v
 
-# enter fullscreen mode for the focused container
-bindsym F11 fullscreen toggle
-
 # focus the child container
 #bindsym $mod+d focus child
 
