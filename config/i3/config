@@ -113,17 +113,18 @@ client.background       #ffffff
 exec --no-startup-id feh --bg-fill ~/.wallpapers/sand.jpg
 
 # Configure monitor
-exec --no-startup-id xrandr --auto --output DP-4 --mode 2560x1440 --rate 165.00 --output HDMI-0 --mode 2560x1080 --rate 74.99 --right-of DP-4
-
-exec --no-startup-id redshift
+#exec --no-startup-id xrandr --auto --output DP-4 --mode 2560x1440 --rate 165.00 --output HDMI-0 --mode 2560x1080 --rate 74.99 --right-of DP-4
+exec --no-startup-id xrandr --auto --output DP-4 --mode 2560x1440 --rate 165.00 
+exec --no-startup-id xrandr --auto --output HDMI-0 --mode 2560x1080 --rate 74.99 --right-of DP-4
 
 # open programs
-bindsym $mod+i exec google-chrome
+bindsym $mod+w exec google-chrome
 bindsym $mod+p exec code
-bindsym $mod+s exec spotify
+bindsym $mod+m exec spotify
 bindsym $mod+l exec i3lock
 bindsym $mod+b exec blueberry
 bindsym $mod+d exec dmenu_run
+bindsym $mod+r exec rofi -show run -location 1
 
 for_window [class="Blueberry.py"] floating enable
 
