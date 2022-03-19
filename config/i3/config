@@ -68,62 +68,62 @@ bindsym $sup+9 workspace number $ws9
 bindsym $sup+0 workspace number $ws10
 
 # move focused container to workspace
-bindsym $sup+Shift+1 move container to workspace number $ws1; workspace $ws1
-bindsym $sup+Shift+2 move container to workspace number $ws2; workspace $ws2
-bindsym $sup+Shift+3 move container to workspace number $ws3; workspace $ws3
-bindsym $sup+Shift+4 move container to workspace number $ws4; workspace $ws4
-bindsym $sup+Shift+5 move container to workspace number $ws5; workspace $ws5
-bindsym $sup+Shift+6 move container to workspace number $ws6; workspace $ws6
-bindsym $sup+Shift+7 move container to workspace number $ws7; workspace $ws7
-bindsym $sup+Shift+8 move container to workspace number $ws8; workspace $ws8
-bindsym $sup+Shift+9 move container to workspace number $ws9; workspace $ws9
+bindsym $sup+Shift+1 move container to workspace number $ws1;  workspace $ws1
+bindsym $sup+Shift+2 move container to workspace number $ws2;  workspace $ws2
+bindsym $sup+Shift+3 move container to workspace number $ws3;  workspace $ws3
+bindsym $sup+Shift+4 move container to workspace number $ws4;  workspace $ws4
+bindsym $sup+Shift+5 move container to workspace number $ws5;  workspace $ws5
+bindsym $sup+Shift+6 move container to workspace number $ws6;  workspace $ws6
+bindsym $sup+Shift+7 move container to workspace number $ws7;  workspace $ws7
+bindsym $sup+Shift+8 move container to workspace number $ws8;  workspace $ws8
+bindsym $sup+Shift+9 move container to workspace number $ws9;  workspace $ws9
 bindsym $sup+Shift+0 move container to workspace number $ws10; workspace $ws10
 
 #
 # DEFINING COLORS
 #
 
-set $white       #FFFFFF
-set $darker      #000000
-set $dark        #181920
-set $dark_gray   #888888
-set $neon_blue   #00A5FF
-set $purple      #BD93F9
+set $white      #FFFFFF
+set $darker     #000000
+set $dark       #181920
+set $dark_gray  #888888
+set $neon_blue  #00A5FF
+set $purple     #BD93F9
 
 #
 # WINDOWS MANAGEMENT
 #
 
-default_border pixel 1
+default_border          pixel 1
 default_floating_border pixel 1
-hide_edge_borders both
+hide_edge_borders       both
 
-# class                 border          backgr.         text            indicator          child_border
-client.focused          $purple         $darker         $white          $purple            $purple
-client.focused_inactive $dark           $darker         $white          $dark_gray         $darker
-client.unfocused        $darker         $darker         $white          $darker            $darker
-client.urgent           $dark           $darker         $white          $dark_gray         $darker
-client.placeholder      $dark           $darker         $white          $dark_gray         $darker
+# class                 border      backgr.     text        indicator       child_border
+client.focused          $purple     $darker     $white      $purple         $purple
+client.focused_inactive $dark       $darker     $white      $dark_gray      $darker
+client.unfocused        $darker     $darker     $white      $darker         $darker
+client.urgent           $dark       $darker     $white      $dark_gray      $darker
+client.placeholder      $dark       $darker     $white      $dark_gray      $darker
 
 client.background       $white
 
 # moving
-bindsym $sup+Shift+Left move left
-bindsym $sup+Shift+Down move down
-bindsym $sup+Shift+Up move up
+bindsym $sup+Shift+Left  move left
+bindsym $sup+Shift+Down  move down
+bindsym $sup+Shift+Up    move up
 bindsym $sup+Shift+Right move right
 
 # focusing
-bindsym $sup+Left focus left
-bindsym $sup+Down focus down
-bindsym $sup+Up focus up
+bindsym $sup+Left  focus left
+bindsym $sup+Down  focus down
+bindsym $sup+Up    focus up
 bindsym $sup+Right focus right
 
 # kill focused window
 bindsym $sup+q kill
 
 for_window [class="Blueberry.py"] floating enable; border pixel 1
-for_window [class="Pavucontrol"] floating enable; border pixel 1
+for_window [class="Pavucontrol"]  floating enable; border pixel 1
 
 bindsym $sup+period floating toggle
 
@@ -144,16 +144,16 @@ $exec xrandr --auto --output HDMI-0 --mode 2560x1080 --rate 74.99 --right-of DP-
 # LAUNCHING PROGRAMS
 #
 
-bindsym $sup+Return exec xfce4-terminal
-bindsym $sup+w exec google-chrome
-bindsym $sup+p exec code
-bindsym $sup+m exec spotify
-bindsym $sup+l exec i3lock
-bindsym $sup+b exec blueberry
-bindsym $sup+d exec dmenu_run
-bindsym $sup+r exec rofi -show run -location 1
-bindsym $sup+e exec pcmanfm
-bindsym Print $exec xfce4-screenshooter
+bindsym $sup+Return $exec xfce4-terminal
+bindsym $sup+w      $exec google-chrome
+bindsym $sup+p      $exec code
+bindsym $sup+m      $exec spotify
+bindsym $sup+l      $exec i3lock
+bindsym $sup+b      $exec blueberry
+bindsym $sup+d      $exec dmenu_run
+bindsym $sup+r      $exec rofi -show run -location 1
+bindsym $sup+e      $exec pcmanfm
+bindsym Print       $exec xfce4-screenshooter
 
 #
 # STATUS BAR
@@ -171,7 +171,7 @@ bar {
 
 
         colors {
-                # separator  $neon_blue
+                # separator  $purple
                 statusline $white
                 background $darker
 
@@ -185,6 +185,7 @@ bar {
 
 # Use pactl to adjust volume in PulseAudio.
 set $refresh_volume killall -SIGUSR1 i3blocks
+
 bindsym XF86AudioRaiseVolume $exec pactl set-sink-volume @DEFAULT_SINK@   +10%   && $refresh_volume
 bindsym XF86AudioLowerVolume $exec pactl set-sink-volume @DEFAULT_SINK@   -10%   && $refresh_volume
 bindsym XF86AudioMute        $exec pactl set-sink-mute   @DEFAULT_SINK@   toggle && $refresh_volume
