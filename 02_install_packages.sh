@@ -1,21 +1,24 @@
 #!/bin/bash
 
-apt install -y i3 \
-               i3-wm \
-               i3blocks \
-               vim \
-               software-properties-common \
-               python-software-properties \
-               meld \
-               htop \
-               curl \
-               xsel \
-               lynx \
-               qemu \
-               aqemu \
-               thunar \
-               blueman \
-               xfce4-terminal \
-               xfce4-screenshooter \
-               rofi \
-               arandr
+apt install -y build-essential \
+    firmware-linux-nonfree \
+    i3 \
+    i3blocks \
+    vim \
+    htop \
+    curl \
+    xsel \
+    lynx \
+    qemu \
+    aqemu \
+    thunar \
+    blueman \
+    xfce4-terminal \
+    xfce4-screenshooter \
+    rofi \
+    feh \
+    gdebi \
+    arandr \
+    numlockx \
+    rar \
+    unrar
