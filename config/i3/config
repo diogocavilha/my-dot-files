@@ -96,7 +96,7 @@ set $purple     #BD93F9
 
 default_border          pixel 1
 default_floating_border pixel 1
-hide_edge_borders       both
+#hide_edge_borders       both
 
 # class                 border      backgr.     text        indicator       child_border
 client.focused          $purple     $darker     $white      $purple         $purple
@@ -122,8 +122,8 @@ bindsym $sup+Right focus right
 # kill focused window
 bindsym $sup+q kill
 
-for_window [class="Blueberry.py"] floating enable; border pixel 1
-for_window [class="Pavucontrol"]  floating enable; border pixel 1
+for_window [class="Blueman-manager"] floating enable; border pixel 1
+for_window [class="Pavucontrol"]     floating enable; border pixel 1
 
 bindsym $sup+period floating toggle
 
@@ -131,7 +131,7 @@ bindsym $sup+period floating toggle
 # WALLPAPER
 #
 
-$exec feh --bg-fill ~/.wallpapers/sand.jpg
+$exec feh --bg-fill ~/.wallpapers/wallpaper.jpeg
 
 #
 # MONITORS
@@ -149,18 +149,22 @@ bindsym $sup+w      $exec google-chrome
 bindsym $sup+p      $exec code
 bindsym $sup+m      $exec spotify
 bindsym $sup+l      $exec i3lock
-bindsym $sup+b      $exec blueberry
+bindsym $sup+b      $exec blueman-manager
 bindsym $sup+d      $exec dmenu_run
 bindsym $sup+r      $exec rofi -show run -location 1
-bindsym $sup+e      $exec pcmanfm
+bindsym $sup+e      $exec thunar
 bindsym Print       $exec xfce4-screenshooter
+
+# i3blocks - caps lock & num lock status
+bindsym --release Caps_Lock $exec pkill -SIGRTMIN+11 i3blocks
+bindsym --release Num_Lock  $exec pkill -SIGRTMIN+11 i3blocks
 
 #
 # STATUS BAR
 #
 
 bar {
-        font pango:FontAwesome 7
+        font pango:FontAwesome 6
 
         position top
         mode dock
