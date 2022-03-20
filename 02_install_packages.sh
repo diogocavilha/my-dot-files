@@ -2,6 +2,7 @@
 
 apt install -y build-essential \
     firmware-linux-nonfree \
+    gnome-keyring \
     i3 \
     i3blocks \
     vim \
