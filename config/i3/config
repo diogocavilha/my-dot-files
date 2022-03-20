@@ -155,10 +155,6 @@ bindsym $sup+r      $exec rofi -show run -location 1
 bindsym $sup+e      $exec thunar
 bindsym Print       $exec xfce4-screenshooter
 
-# i3blocks - caps lock & num lock status
-bindsym --release Caps_Lock $exec pkill -SIGRTMIN+11 i3blocks
-bindsym --release Num_Lock  $exec pkill -SIGRTMIN+11 i3blocks
-
 #
 # STATUS BAR
 #
@@ -186,6 +182,10 @@ bar {
                 urgent_workspace   $dark        $dark   $dark_gray
         }
 }
+
+# i3blocks - caps lock & num lock status
+bindsym --release Caps_Lock $exec pkill -SIGRTMIN+11 i3blocks
+bindsym --release Num_Lock  $exec pkill -SIGRTMIN+11 i3blocks
 
 # Use pactl to adjust volume in PulseAudio.
 set $refresh_volume killall -SIGUSR1 i3blocks
