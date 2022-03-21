@@ -2,6 +2,7 @@
 
 apt install -y build-essential \
     firmware-linux-nonfree \
+    firmware-iwlwifi \
     gnome-keyring \
     i3 \
     i3blocks \
