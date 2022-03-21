@@ -175,14 +175,10 @@ bindsym Print       $exec xfce4-screenshooter
 
 bar {
         font pango:FontAwesome 6
-
         position top
         mode dock
         bindsym button1 nop
-
         status_command i3blocks
-        # separator_symbol ")"
-
 
         colors {
                 # separator  $purple
