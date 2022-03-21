@@ -2,7 +2,8 @@
 set $sup Mod4
 set $alt Mod1
 
-set $exec exec --no-startup-id
+set $exec        exec --no-startup-id
+set $exec_always exec_always --no-startup-id
 
 font pango:monospace 8
 
@@ -30,14 +31,24 @@ bindsym $sup+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $sup+Shift+r restart
 
-# exit i3 (logs you out of your X session)
-bindsym $sup+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
-
 # split in horizontal orientation
 bindsym $sup+h split h
 
 # split in vertical orientation
 bindsym $sup+v split v
+
+# Create Log out, Reboot, Poweroff bindings
+mode "Exit (L)ogout, (R)eboot, (P)oweroff" {
+    bindsym $sup+r exec systemctl reboot
+    bindsym $sup+l exit
+    bindsym $sup+p exec systemctl poweroff
+
+    # back to normal: Enter or Escape
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+
+bindsym $sup+Shift+e mode "Exit (L)ogout, (R)eboot, (P)oweroff"
 
 #
 # WORKSPACES
@@ -153,6 +164,9 @@ $exec feh --bg-fill ~/.wallpapers/wallpaper.jpeg
 
 $exec xrandr --auto --output DP-4 --mode 2560x1440 --rate 165.00
 $exec xrandr --auto --output HDMI-0 --mode 2560x1080 --rate 74.99 --right-of DP-4
+
+# Adjust the light
+$exec_always redshift
 
 #
 # LAUNCHING PROGRAMS
