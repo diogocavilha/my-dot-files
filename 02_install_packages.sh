@@ -5,6 +5,7 @@ apt install -y build-essential \
     firmware-iwlwifi \
     pavucontrol \
     gnome-keyring \
+    lxappearance \
     i3 \
     i3blocks \
     vim \
