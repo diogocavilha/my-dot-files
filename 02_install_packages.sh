@@ -5,7 +5,6 @@ apt install -y build-essential \
     firmware-iwlwifi \
     pavucontrol \
     gnome-keyring \
-    lxappearance \
     i3 \
     i3blocks \
     vim \
@@ -13,8 +12,6 @@ apt install -y build-essential \
     curl \
     xsel \
     lynx \
-    qemu \
-    aqemu \
     thunar \
     blueman \
     xfce4-terminal \
