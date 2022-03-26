@@ -22,4 +22,7 @@ apt install -y build-essential \
     arandr \
     numlockx \
     rar \
-    unrar
+    unrar \
+    notify-send \
+    transmission
+
