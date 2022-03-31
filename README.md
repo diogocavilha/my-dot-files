@@ -40,3 +40,7 @@ $ sudo ip link set wlo1 up
 $ sudo wpa_supplicant -B -i wlo1 -c /etc/wpa_supplicant.conf -Dnl80211,wext
 $ sudo dhclient wlo1
 ```
+
+## 2 - Installing NVIDIA driver
+
+[Guide](https://www.if-not-true-then-false.com/2021/debian-ubuntu-linux-mint-nvidia-guide/)
