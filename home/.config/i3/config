@@ -158,7 +158,7 @@ bindsym $sup+Shift+w mode "resize"
 # WALLPAPER
 #
 
-$exec feh --bg-fill ~/.wallpapers/wallpaper.jpeg
+$exec feh --bg-fill ~/.wallpapers/1.jpeg
 
 #
 # MONITORS
@@ -175,7 +175,7 @@ $exec_always redshift
 #
 
 bindsym $sup+Return $exec xfce4-terminal
-bindsym $sup+w      $exec google-chrome
+bindsym $sup+w      $exec firefox 
 bindsym $sup+p      $exec code
 bindsym $sup+m      $exec spotify
 bindsym $sup+l      $exec i3lock
@@ -219,3 +219,4 @@ bindsym XF86AudioRaiseVolume $exec pactl set-sink-volume @DEFAULT_SINK@   +10%  
 bindsym XF86AudioLowerVolume $exec pactl set-sink-volume @DEFAULT_SINK@   -10%   && $refresh_volume
 bindsym XF86AudioMute        $exec pactl set-sink-mute   @DEFAULT_SINK@   toggle && $refresh_volume
 bindsym XF86AudioMicMute     $exec pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_volume
+
