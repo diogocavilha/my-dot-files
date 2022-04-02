@@ -44,3 +44,9 @@ $ sudo dhclient wlo1
 ## 2 - Installing NVIDIA driver
 
 [Guide](https://www.if-not-true-then-false.com/2021/debian-ubuntu-linux-mint-nvidia-guide/)
+
+## 3 - Fixing cursor size
+
+```bash
+sudo update-alternatives --config x-cursor-theme
+```
