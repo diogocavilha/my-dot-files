@@ -21,9 +21,9 @@ $exec nm-applet
 # Use Mouse+$sup to drag floating windows to their wanted position
 floating_modifier $alt
 
-#
+# ---------------------------------------------------------------------------------------------------------------------#
 # I3 MANAGEMENT
-#
+# ---------------------------------------------------------------------------------------------------------------------#
 
 # reload
 bindsym $sup+Shift+c reload
@@ -50,9 +50,9 @@ mode "Exit (L)ogout, (R)eboot, (P)oweroff" {
 
 bindsym $sup+Shift+e mode "Exit (L)ogout, (R)eboot, (P)oweroff"
 
-#
+# ---------------------------------------------------------------------------------------------------------------------#
 # WORKSPACES
-#
+# ---------------------------------------------------------------------------------------------------------------------#
 
 # labels
 set $ws1 "1"
@@ -90,33 +90,38 @@ bindsym $sup+Shift+8 move container to workspace number $ws8;  workspace $ws8
 bindsym $sup+Shift+9 move container to workspace number $ws9;  workspace $ws9
 bindsym $sup+Shift+0 move container to workspace number $ws10; workspace $ws10
 
-#
+# ---------------------------------------------------------------------------------------------------------------------#
 # DEFINING COLORS
-#
+# ---------------------------------------------------------------------------------------------------------------------#
 
-set $white         #FFFFFF
-set $darker        #000000
-set $dark          #181920
-set $dark_dracula  #282A36
-set $light_dracula #F8F8F2
-set $dark_gray     #888888
-set $neon_blue     #00A5FF
-set $purple        #BD93F9
+# Dracula color scheme
+set $white        #FFFFFF
+set $dark         #282A36
+set $darker       #333333
+set $light        #F8F8F2
+set $dark_gray    #888888
+set $neon_blue    #00A5FF
+set $purple       #BD93F9
+set $green        #50FA7B
+set $orange       #FFB86C
+set $dmenu_bg     #282A36
+set $dmenu_fg     #DDDDDD
+set $dmenu_sel_bg #50FA7B
 
-#
+# ---------------------------------------------------------------------------------------------------------------------#
 # WINDOWS MANAGEMENT
-#
+# ---------------------------------------------------------------------------------------------------------------------#
 
 default_border          pixel 1
 default_floating_border pixel 1
-#hide_edge_borders       both
+# hide_edge_borders       both
 
-# class                 border      backgr.     text        indicator       child_border
-client.focused          $purple     $darker     $white      $purple         $purple
-client.focused_inactive $dark       $darker     $white      $dark_gray      $darker
-client.unfocused        $darker     $darker     $white      $darker         $darker
-client.urgent           $dark       $darker     $white      $dark_gray      $darker
-client.placeholder      $dark       $darker     $white      $dark_gray      $darker
+# class                 border             backgr.     text        indicator       child_border
+client.focused          $dark_gray         $dark       $white      $dark_gray      $dark_gray
+client.focused_inactive $dark              $dark       $white      $dark           $dark
+client.unfocused        $dark              $dark       $white      $dark           $dark
+client.urgent           $dark              $dark       $white      $dark_gray      $dark
+client.placeholder      $dark              $dark       $white      $dark_gray      $dark
 
 client.background       $white
 
@@ -154,57 +159,54 @@ mode "resize" {
 
 bindsym $sup+Shift+w mode "resize"
 
-#
+# ---------------------------------------------------------------------------------------------------------------------#
 # WALLPAPER
-#
+# ---------------------------------------------------------------------------------------------------------------------#
 
 $exec feh --bg-fill ~/.wallpapers/1.jpeg
 
-#
+# ---------------------------------------------------------------------------------------------------------------------#
 # MONITORS
-#
+# ---------------------------------------------------------------------------------------------------------------------#
 
 $exec xrandr --auto --output DP-4 --mode 2560x1440 --rate 165.00
 $exec xrandr --auto --output HDMI-0 --mode 2560x1080 --rate 74.99 --right-of DP-4
 
-# Adjust the light
-$exec_always redshift
-
-#
+# ---------------------------------------------------------------------------------------------------------------------#
 # LAUNCHING PROGRAMS
-#
+# ---------------------------------------------------------------------------------------------------------------------#
 
 bindsym $sup+Return $exec xfce4-terminal
-bindsym $sup+w      $exec firefox 
+bindsym $sup+w      $exec firefox
 bindsym $sup+p      $exec code
 bindsym $sup+m      $exec spotify
 bindsym $sup+l      $exec i3lock
 bindsym $sup+b      $exec blueman-manager
-bindsym $sup+d      $exec "dmenu_run -nf '#F8F8F2' -nb '#282A36' -sb '#6272A4' -sf '#F8F8F2' -fn 'monospace-10' -p 'dmenu%'"
+bindsym $sup+d      $exec "dmenu_run -nf '$dmenu_fg' -nb '$dmenu_bg' -sb '$dmenu_sel_bg' -sf '$dmenu_bg' -fn 'monospace-07' -p 'run:'"
 bindsym $sup+r      $exec rofi -show run -location 1
 bindsym $sup+e      $exec thunar
 bindsym Print       $exec xfce4-screenshooter
 
-#
+# ---------------------------------------------------------------------------------------------------------------------#
 # STATUS BAR
-#
+# ---------------------------------------------------------------------------------------------------------------------#
 
 bar {
-        font pango:FontAwesome 6
+        font pango:monospace 6
         position top
         mode dock
         bindsym button1 nop
         status_command i3blocks
 
         colors {
-                statusline $light_dracula
-                background $dark_dracula
+                statusline $light
+                background $dark
 
-                #workspace state   border       bg      fg
-                focused_workspace  $purple      $dark   $purple
-                active_workspace   $dark        $dark   $dark_gray
-                inactive_workspace $dark        $dark   $dark_gray
-                urgent_workspace   $dark        $dark   $dark_gray
+                #workspace state   border           bg              fg
+                focused_workspace  $orange          $dark           $orange
+                active_workspace   $darker          $darker         $dark_gray
+                inactive_workspace $darker          $darker         $dark_gray
+                urgent_workspace   $dark            $dark           $dark_gray
         }
 }
 
