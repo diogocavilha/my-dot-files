@@ -13,6 +13,7 @@ apt install -y build-essential \
     xsel \
     lynx \
     thunar \
+    ristretto \
     blueman \
     xfce4-terminal \
     xfce4-screenshooter \
