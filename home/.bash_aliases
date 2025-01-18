@@ -4,6 +4,7 @@ export HISTSIZE=-1
 export HISTFILESIZE=-1
 export HISTCONTROL=ignoredups:ignorespace:erasedups
 
+# system
 alias ccat="pygmentize -f terminal256 -O style=native -g"
 alias i="sudo apt-get install -y"
 alias bashreload=". ~/.bashrc"
@@ -14,16 +15,22 @@ alias aptfix="sudo rm -rf /var/lib/dpkg/info/a.*; sudo rm -rf /var/lib/dpkg/info
 alias getip="hostname -I | cut -d ' ' -f 1"
 alias bashlog-truncate="truncate -s 0 /var/log/bash.log"
 alias bashlog-follow="tail -f /var/log/bash.log"
-alias docker-run-mysql="docker run -p 3306:3306 --name local_mysql -v ~/.docker_dbdata/mysql:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=admin -d mysql:5.7 --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci"
-alias docker-run-postgresql="docker run -p 5433:5432 --name local_postgres -v ~/.docker_dbdata/postgresql:/var/lib/postgresql/data -e POSTGRES_PASSWORD=localhost -d postgres:10-alpine"
-#alias docker_run_mongodb="docker run -p 27017:27017 -p 8089:8089 --name local_mongo -v ~/.docker_dbdata/mongo:/data/db -e MONGO_INITDB_ROOT_USERNAME=root -e MONGO_INITDB_ROOT_PASSWORD=admin -d mongo:latest"
-alias docker-run-mongodb="docker run -p 27017:27017 -p 8089:8089 --name local_mongo_no_auth -v ~/.docker_dbdata/mongo:/data/db -d mongo:latest"
-alias i3config="vim ~/.config/i3/config"
-alias i3statusconfig="vim ~/.config/i3/i3status.conf"
-alias vm-live-run="qemu-system-x86_64 --enable-kvm -m 4G -smp 4 -name 'Live S.O' -boot d -cdrom " # Param: ISO path
-alias vm-windows10-run='qemu-system-x86_64 --enable-kvm -m 4G -smp 4 -boot d -hda ~/.qemu/windows10.qcow2'
 alias activate="source .venv/bin/activate"
 alias refresh-keys='sudo apt-key adv --refresh-keys --keyserver keyserver.ubuntu.com'
+
+# virtualization
+alias vm-live-run="qemu-system-x86_64 --enable-kvm -m 4G -smp 4 -name 'Live S.O' -boot d -cdrom " # Param: ISO path
+alias vm-windows10-run='qemu-system-x86_64 --enable-kvm -m 4G -smp 4 -boot d -hda ~/.qemu/windows10.qcow2'
+
+# i3wm
+alias i3config="vim ~/.config/i3/config"
+alias i3statusconfig="vim ~/.config/i3/i3status.conf"
+
+# docker
+alias docker-run-mysql="docker run -p 3306:3306 --name local_mysql -v ~/.docker_dbdata/mysql:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=admin -d mysql:5.7 --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci"
+alias docker-run-postgresql="docker run -p 5433:5432 --name local_postgres -v ~/.docker_dbdata/postgresql:/var/lib/postgresql/data -e POSTGRES_PASSWORD=localhost -d postgres:10-alpine"
+alias docker-run-mongodb="docker run -p 27017:27017 -p 8089:8089 --name local_mongo_no_auth -v ~/.docker_dbdata/mongo:/data/db -d mongo:latest"
+#alias docker_run_mongodb="docker run -p 27017:27017 -p 8089:8089 --name local_mongo -v ~/.docker_dbdata/mongo:/data/db -e MONGO_INITDB_ROOT_USERNAME=root -e MONGO_INITDB_ROOT_PASSWORD=admin -d mongo:latest"
 
 alias ggource="gource \
     --seconds-per-day 5 \
@@ -118,6 +125,9 @@ rgrep() {
     grep -i -r --exclude-dir={target,dbdata,database,test,.git} --exclude=*.{log,sql,xml} $1 $where
 }
 
+#
+# docker
+#
 docker_remove_images_with_none() {
     docker rmi -f "$(docker images --filter "dangling=true" -q --no-trunc)"
 }
