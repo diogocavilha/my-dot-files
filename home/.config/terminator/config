@@ -1,43 +1,29 @@
 [global_config]
-  title_transmit_fg_color = "#8ae234"
+  scroll_tabbar = True
   title_transmit_bg_color = "#000000"
-  title_receive_fg_color = "#8ae234"
-  title_receive_bg_color = "#000000"
-  title_inactive_bg_color = "#000000"
+  enabled_plugins = LaunchpadBugURLHandler, LaunchpadCodeURLHandler, APTURLHandler, TerminatorThemes
+  always_split_with_profile = True
+  title_use_system_font = False
+  title_font = JetBrainsMono Nerd Font Mono 9
 [keybindings]
 [profiles]
   [[default]]
-    background_darkness = 0.9
+    background_color = "#0f0e11"
+    background_darkness = 0.98
+    cursor_blink = False
     cursor_color = "#aaaaaa"
-    font = JetBrainsMono Nerd Font Mono Medium 10
-    foreground_color = "#eeeeec"
-    use_system_font = False
-  [[matrix]]
-    background_darkness = 0.9
-    background_type = transparent
-    cursor_color = "#aaaaaa"
-    font = JetBrainsMono Nerd Font Mono Medium 10
-    foreground_color = "#00ff00"
-    use_system_font = False
-  [[default_transparent]]
-    background_darkness = 0.85
-    background_type = transparent
-    cursor_color = "#aaaaaa"
-    font = JetBrainsMono Nerd Font Mono Medium 10
-    use_system_font = False
-  [[matrix_transparent]]
-    background_darkness = 0.85
-    background_type = transparent
-    cursor_color = "#aaaaaa"
-    font = JetBrainsMono Nerd Font Mono Medium 10
-    foreground_color = "#00ff00"
+    font = Fira Code Light 12
+    foreground_color = "#ffffff"
+    show_titlebar = False
+    scrollbar_position = hidden
+    scrollback_infinite = True
+    palette = "#000000:#cc0000:#4e9a06:#c4a000:#3465a4:#75507b:#06989a:#d3d7cf:#555753:#ef2929:#8ae234:#fce94f:#729fcf:#ad7fa8:#34e2e2:#eeeeec"
     use_system_font = False
 [layouts]
   [[default]]
     [[[window0]]]
       type = Window
       parent = ""
-      size = 1600, 800
     [[[child1]]]
       type = Terminal
       parent = window0
