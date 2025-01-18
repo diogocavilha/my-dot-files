@@ -12,15 +12,18 @@ alias aliasshow="ccat ~/.bash_aliases"
 alias json2yaml="python -c 'import sys, yaml, json; yaml.safe_dump(json.load(sys.stdin), sys.stdout, default_flow_style=False)' < "
 alias aptfix="sudo rm -rf /var/lib/dpkg/info/a.*; sudo rm -rf /var/lib/dpkg/info/*.*; sudo apt-get clean; sudo apt-get install -f; sudo apt-get update"
 alias getip="hostname -I | cut -d ' ' -f 1"
-alias bashlog_truncate="truncate -s 0 /var/log/bash.log"
-alias bashlog_follow="tail -f /var/log/bash.log"
-alias docker_run_mysql="docker run -p 3306:3306 --name local_mysql -v ~/.docker_dbdata/mysql:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=admin -d mysql:5.7 --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci"
-alias docker_run_postgresql="docker run -p 5432:5432 --name local_postgres -v ~/.docker_dbdata/postgresql:/var/lib/postgresql/data -e POSTGRES_PASSWORD=admin -d postgres:10-alpine"
-alias docker_run_mongo="docker run -p 27017:27017 -p 8089:8089 --name local_mongo -v ~/.docker_dbdata/mongo:/data/db -e MONGO_INITDB_ROOT_USERNAME=root -e MONGO_INITDB_ROOT_PASSWORD=admin -d mongo:latest"
+alias bashlog-truncate="truncate -s 0 /var/log/bash.log"
+alias bashlog-follow="tail -f /var/log/bash.log"
+alias docker-run-mysql="docker run -p 3306:3306 --name local_mysql -v ~/.docker_dbdata/mysql:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=admin -d mysql:5.7 --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci"
+alias docker-run-postgresql="docker run -p 5433:5432 --name local_postgres -v ~/.docker_dbdata/postgresql:/var/lib/postgresql/data -e POSTGRES_PASSWORD=localhost -d postgres:10-alpine"
+#alias docker_run_mongodb="docker run -p 27017:27017 -p 8089:8089 --name local_mongo -v ~/.docker_dbdata/mongo:/data/db -e MONGO_INITDB_ROOT_USERNAME=root -e MONGO_INITDB_ROOT_PASSWORD=admin -d mongo:latest"
+alias docker-run-mongodb="docker run -p 27017:27017 -p 8089:8089 --name local_mongo_no_auth -v ~/.docker_dbdata/mongo:/data/db -d mongo:latest"
 alias i3config="vim ~/.config/i3/config"
 alias i3statusconfig="vim ~/.config/i3/i3status.conf"
-alias vm_live_run="qemu-system-x86_64 --enable-kvm -m 4G -smp 4 -name 'Live S.O' -boot d -cdrom " # Param: ISO path
-alias vm_windows10_run='qemu-system-x86_64 --enable-kvm -m 4G -smp 4 -boot d -hda ~/.qemu/windows10.qcow2'
+alias vm-live-run="qemu-system-x86_64 --enable-kvm -m 4G -smp 4 -name 'Live S.O' -boot d -cdrom " # Param: ISO path
+alias vm-windows10-run='qemu-system-x86_64 --enable-kvm -m 4G -smp 4 -boot d -hda ~/.qemu/windows10.qcow2'
+alias activate="source .venv/bin/activate"
+alias refresh-keys='sudo apt-key adv --refresh-keys --keyserver keyserver.ubuntu.com'
 
 alias ggource="gource \
     --seconds-per-day 5 \
@@ -49,6 +52,26 @@ colors_show() {
     while [ $color -lt 245 ]; do
         echo -e "$color: \\033[38;5;${color}mhello\\033[48;5;${color}mworld\\033[0m"
         ((color++));
+    done
+}
+
+cr32dng() {
+    local totalCR3files=$(ls -l *.CR3 | wc -l)
+    local totalDNGfiles=0
+
+    for cr3file in $(ls *.CR3); do
+        dngfile=$(echo "$cr3file" | cut -f1 -d'.')
+        dngfile="$dngfile.dng"
+
+        echo -e "\n\nConverting ${cr3file} into ${dngfile}..."
+        dnglab convert "$cr3file" "$dngfile"
+
+        totalDNGfiles=$(ls -l *.dng | wc -l)
+        echo "Progress: [${totalDNGfiles}/${totalCR3files}]"
+
+        # Remove CR3 file after converting it to DNG
+        echo -n "Removing ${cr3file}..."
+        rm "$cr3file"
     done
 }
 
@@ -143,6 +166,17 @@ docker_run_rabbitmq() {
     printf "\n%s\n" "http://localhost:15672/#/"
 	printf "User: %s\n" "$user"
 	printf "Pass: %s\n\n" "$pass"
+}
+
+docker_run_kafka() {
+    export HOST_IP=$(ifconfig \
+        | grep -E "([0-9]{1,3}\.){3}[0-9]{1,3}" \
+        | grep -v 127.0.0.1 \
+        | awk '{ print $2 }' \
+        | cut -f2 -d: \
+        | head -n1)
+
+    docker-compose -f ~/bin/dockercompose/docker-compose-kafka.yml up
 }
 
 if [ -f ~/.bash_aliases_company ]; then
