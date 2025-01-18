@@ -176,7 +176,7 @@ docker_run_kafka() {
         | cut -f2 -d: \
         | head -n1)
 
-    docker-compose -f ~/bin/dockercompose/docker-compose-kafka.yml up
+    docker-compose -f ~/git/my-dot-files/bin/dockercompose/docker-compose-kafka.yml up
 }
 
 if [ -f ~/.bash_aliases_company ]; then
