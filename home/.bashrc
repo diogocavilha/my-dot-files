@@ -116,23 +116,32 @@ if ! shopt -oq posix; then
   fi
 fi
 
+#
+# FancyGit
+#
 . ~/.fancy-git/prompt.sh
 
 #
 # ASDF
 #
-. "$HOME/.asdf/asdf.sh"
+. $HOME/.asdf/asdf.sh
 . $HOME/.asdf/completions/asdf.bash
 
+
+#
+# Go path
+#
+export GOPATH=~/.go/bin
+
+#
+# Pyenv
+#
+# export PATH="$PATH:~/.pyenv/bin"
+# eval "$(pyenv init --path)"
+# eval "$(pyenv virtualenv-init -)"
+
 USER_BIN=~/bin
-
-export GOPATH=~/go/bin
-
-export PATH="$PATH:~/.config/composer/vendor/bin:~/.pyenv/bin"
+export PATH="$PATH:~/.config/composer/vendor/bin"
 export PATH="$PATH:$USER_BIN"
 export PATH="$PATH:$USER_BIN/nvim-linux64/bin"
 export PATH="$PATH:$GOPATH:/usr/local/go/bin"
-
-eval "$(pyenv init --path)"
-eval "$(pyenv virtualenv-init -)"
-
