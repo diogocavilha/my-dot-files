@@ -1,4 +1,4 @@
-. ~/git/respect-shell/respect.sh
+. ~/.respect-shell/respect.sh
 
 export HISTSIZE=-1
 export HISTFILESIZE=-1
@@ -186,7 +186,7 @@ docker_run_kafka() {
         | cut -f2 -d: \
         | head -n1)
 
-    docker-compose -f ~/git/my-dot-files/bin/dockercompose/docker-compose-kafka.yml up
+    docker-compose -f ~/.my-dot-files/bin/dockercompose/docker-compose-kafka.yml up
 }
 
 if [ -f ~/.bash_aliases_company ]; then

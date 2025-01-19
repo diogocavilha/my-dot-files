@@ -2,9 +2,11 @@
 
 These are just my config files.  
 Unless you know what you're doing, I don't recommend you to use the same configuration since it has been changed to suit my needs.
-Bear in mind it's a configuration for a Debian minimal installation. Other distros might have other configuration issues.
+Bear in mind it's a configuration for a Debian minimal installation OR Mint with XFCE4. Other distros might have other configuration issues.
 
 ---
+
+# Debian
 
 # First time configuration, installing Debian minimal...
 
@@ -49,4 +51,22 @@ $ sudo dhclient wlo1
 
 ```bash
 sudo update-alternatives --config x-cursor-theme
+```
+
+## 4 - Running setup
+
+```bash
+$ ./debian-setup.sh
+```
+
+# Mint
+
+```bash
+$ git clone git@github.com:diogocavilha/my-dot-files.git ~/.my-dot-files
+```
+
+## Running setup
+
+```bash
+$ ./mint-setup.sh
 ```
