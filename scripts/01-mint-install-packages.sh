@@ -14,4 +14,5 @@ apt install -y build-essential \
     htop \
     rar unrar \
     redshift redshift-gtk \
-    spotify-client
+    spotify-client \
+    steam
