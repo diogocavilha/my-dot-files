@@ -14,6 +14,10 @@ git clone git@github.com:diogocavilha/respect-shell.git ~/.respect-shell
 respect.title "Installing asdf"
 git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.15.0
 
+respect.title "Installing GE Proton"
+asdf plugin add protonge
+asdf install protonge latest
+
 respect.title "Installing Docker / Docker compose"
 sudo apt update
 sudo apt install -y apt-transport-https ca-certificates curl gnupg
