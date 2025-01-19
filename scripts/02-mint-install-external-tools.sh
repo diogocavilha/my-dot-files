@@ -30,10 +30,10 @@ sudo docker -v
 docker compose version
 
 respect.title "Run these commands to add docker command to non-root user:"
-echo 'sudo usermod -aG docker ${USER}'
-echo 'newgrp docker'
-sleep 10
+sudo usermod -aG docker ${USER}
+sleep 2
+newgrp docker
 
-# respect.title "Testing Docker"
-# sleep 3
-# docker run hello-world
+respect.title "Testing Docker"
+sleep 3
+docker run hello-world
