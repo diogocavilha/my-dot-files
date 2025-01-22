@@ -14,6 +14,8 @@ git clone git@github.com:diogocavilha/respect-shell.git ~/.respect-shell
 respect.title "Installing asdf"
 git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.15.0
 
+sleep 2
+
 respect.title "Installing GE Proton"
 asdf plugin add protonge
 asdf install protonge latest
@@ -29,11 +31,11 @@ sudo systemctl is-active docker
 sudo docker -v
 docker compose version
 
-respect.title "Run these commands to add docker command to non-root user:"
-sudo usermod -aG docker ${USER}
-sleep 2
-newgrp docker
+# respect.title "Run these commands to add docker command to non-root user:"
+# sudo usermod -aG docker ${USER}
+# sleep 2
+# newgrp docker
 
-respect.title "Testing Docker"
-sleep 3
-docker run hello-world
+# respect.title "Testing Docker"
+# sleep 3
+# docker run hello-world
