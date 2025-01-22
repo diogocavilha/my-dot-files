@@ -3,9 +3,13 @@
 . ~/.my-dot-files/scripts/respect-shell.sh
 
 respect.title "Installing config files"
-cp -vf ../home/.gitconfig ~
-cp -vf ../home/.bash_aliases ~
-cp -vf ../home/.bashrc ~
-cp -vf ../home/.vimrc ~
-cp -vf ../home/.config/terminator/config ~/.config/terminator/config
-cp -vf ../home/.config/redshift/redshift.conf ~/.config/redshift/redshift.conf
+cp -vf ~/.my-dot-files/home/.gitconfig ~
+cp -vf ~/.my-dot-files/home/.bash_aliases ~
+cp -vf ~/.my-dot-files/home/.bashrc ~
+cp -vf ~/.my-dot-files/home/.vimrc ~
+
+mkdir -p ~/.config/terminator/
+cp -vf ~/.my-dot-files/home/.config/terminator/config ~/.config/terminator/config
+
+mkdir -p ~/.config/redshift/
+cp -vf ~/.my-dot-files/home/.config/redshift/redshift.conf ~/.config/redshift/redshift.conf
