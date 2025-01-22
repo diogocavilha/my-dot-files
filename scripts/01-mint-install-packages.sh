@@ -15,4 +15,5 @@ apt install -y build-essential \
     rar unrar \
     redshift redshift-gtk \
     spotify-client \
+    darktable \
     steam
