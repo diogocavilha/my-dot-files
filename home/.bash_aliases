@@ -192,3 +192,6 @@ docker_run_kafka() {
 if [ -f ~/.bash_aliases_company ]; then
     . ~/.bash_aliases_company
 fi
+
+. ~/.fancy-git/aliases
+
