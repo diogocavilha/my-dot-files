@@ -4,15 +4,21 @@
 palette = "dracula"
 add_newline = false
 
+[line_break]
+disabled = true
+
 [package]
 disabled = true
+
+[fill]
+symbol = ' '
 
 [aws]
 style = "bold orange"
 
 [character] # λ | ➔ 
-error_symbol = "[➜](bold red)"
-success_symbol = '[➔](bold green)' 
+success_symbol = '[❯](bold green)' 
+error_symbol = "[✘](bold red)"
 
 [cmd_duration]
 style = "bold yellow"
@@ -21,7 +27,21 @@ style = "bold yellow"
 style = "bold pink"
 symbol = ' '
 
-# Define Dracula color palette
+[git_state]
+format = '[\($state( $progress_current of $progress_total)\)]($style) '
+cherry_pick = '[🍒 PICKING](bold red)'
+
+[git_metrics]
+added_style = 'bold blue'
+format = '[+$added]($added_style)/[-$deleted]($deleted_style) '
+
+[docker_context]
+disabled = false
+symbol = '🐳 '
+only_with_files = true
+format = 'via [🐋 $context](blue bold)'
+detect_files = ['docker-compose.yml', 'docker-compose.yaml', 'Dockerfile']
+
 [palettes.dracula]
 background = "#282a36"
 current_line = "#44475a"
