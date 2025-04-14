@@ -8,7 +8,7 @@
 [keybindings]
 [profiles]
   [[default]]
-    background_color = "#0f0e11"
+    background_color = "#1A1B26"
     background_darkness = 0.98
     cursor_blink = False
     cursor_color = "#aaaaaa"
