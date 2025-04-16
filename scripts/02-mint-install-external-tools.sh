@@ -1,26 +1,24 @@
 #!/bin/bash
 
-. ~/.my-dot-files/scripts/respect-shell.sh
+# Installing Brave Browser
+# curl -fsS https://dl.brave.com/install.sh | sh
 
-respect.title "Installing Brave Browser"
-curl -fsS https://dl.brave.com/install.sh | sh
-
-respect.title "Installing Fancygit"
+# Installing Fancygit
 curl -sS https://raw.githubusercontent.com/diogocavilha/fancy-git/master/install.sh | sh
 
-respect.title "Installing Respect shell"
+# Installing Respect shell
 git clone git@github.com:diogocavilha/respect-shell.git ~/.respect-shell
 
-respect.title "Installing asdf"
-git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.15.0
+# Installing asdf
+# git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.15.0
 
 sleep 2
 
-respect.title "Installing GE Proton"
-asdf plugin add protonge
-asdf install protonge latest
+# Installing GE Proton
+# asdf plugin add protonge
+# asdf install protonge latest
 
-respect.title "Installing Docker / Docker compose"
+# Installing Docker / Docker compose
 sudo apt update
 sudo apt install -y apt-transport-https ca-certificates curl gnupg
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker.gpg
@@ -31,11 +29,9 @@ sudo systemctl is-active docker
 sudo docker -v
 docker compose version
 
-# respect.title "Run these commands to add docker command to non-root user:"
-# sudo usermod -aG docker ${USER}
-# sleep 2
-# newgrp docker
+# Run these commands to add docker command to non-root user
+sudo usermod -aG docker ${USER}
+newgrp docker
 
-# respect.title "Testing Docker"
-# sleep 3
-# docker run hello-world
+# Testing Docker
+docker run hello-world
