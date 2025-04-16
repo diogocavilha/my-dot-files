@@ -1,11 +1,9 @@
 #!/bin/bash
 
-. ~/.my-dot-files/scripts/respect-shell.sh
-
-respect.title "Updating repositories"
 sudo apt update
 
-respect.title "Installing packages"
+# apt install -y redshift redshift-gtk steam
+
 apt install -y build-essential \
     font-manager \
     git \
@@ -13,7 +11,5 @@ apt install -y build-essential \
     terminator \
     htop \
     rar unrar \
-    redshift redshift-gtk \
     spotify-client \
-    darktable \
-    steam
+    darktable
