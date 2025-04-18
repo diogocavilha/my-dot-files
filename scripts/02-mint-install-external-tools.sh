@@ -4,7 +4,8 @@
 # curl -fsS https://dl.brave.com/install.sh | sh
 
 # Installing Fancygit
-curl -sS https://raw.githubusercontent.com/diogocavilha/fancy-git/master/install.sh | sh
+# Currently just to get the git aliases
+git clone git@github.com:diogocavilha/fancy-git.git ~/.fancy-git
 
 # Installing Respect shell
 git clone git@github.com:diogocavilha/respect-shell.git ~/.respect-shell

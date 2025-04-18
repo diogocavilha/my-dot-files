@@ -27,4 +27,4 @@ if [ -d "$HOME/.local/bin" ] ; then
 fi
 
 # set custom keyboard map
-xmodmap ~/.Xmodmap
+xmodmap ~/.my-dot-files/home/.Xmodmap

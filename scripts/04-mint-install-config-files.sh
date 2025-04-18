@@ -1,7 +1,6 @@
 #!/bin/bash
 
 # Installing config files
-cp -vf ~/.my-dot-files/home/.Xmodmap ~
 cp -vf ~/.my-dot-files/home/.profile ~
 cp -vf ~/.my-dot-files/home/.gitconfig ~
 cp -vf ~/.my-dot-files/home/.bash_aliases ~
