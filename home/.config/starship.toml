@@ -1,8 +1,11 @@
 # Get editor completions based on the config schema
-#"$schema" = 'https://starship.rs/config-schema.json'
+"$schema" = 'https://starship.rs/config-schema.json'
 
-palette = "dracula"
 add_newline = false
+palette = "dracula"
+
+format = """$directory$git_branch$git_status$character"""
+right_format = """$all"""
 
 [line_break]
 disabled = true
@@ -13,11 +16,18 @@ disabled = true
 [fill]
 symbol = ' '
 
+[nodejs]
+format = '[🤖 $version](bold green) '
+
+[php]
+format = '[🐘 $version](147 bold) '
+
 [aws]
 style = "bold orange"
+symbol = ' '
 
-[character] # λ | ➔ 
-success_symbol = '[❯](bold green)' 
+[character] # λ | ➔ | ❯  
+success_symbol = '[➔](bold green)' 
 error_symbol = "[✘](bold red)"
 
 [cmd_duration]
@@ -39,8 +49,9 @@ format = '[+$added]($added_style)/[-$deleted]($deleted_style) '
 disabled = false
 symbol = '🐳 '
 only_with_files = true
-format = 'via [🐋 $context](blue bold)'
+format = '[🐋 $context](blue bold)'
 detect_files = ['docker-compose.yml', 'docker-compose.yaml', 'Dockerfile']
+detect_extensions = ['Dockerfile']
 
 [palettes.dracula]
 background = "#282a36"
