@@ -31,7 +31,7 @@ success_symbol = '[➔](bold green)'
 error_symbol = "[✘](bold red)"
 
 [cmd_duration]
-style = "bold yellow"
+format = '⏱️  [$duration](bold yellow)'
 
 [git_branch]
 style = "bold pink"
@@ -65,3 +65,4 @@ pink = "#ff79c6"
 purple = "#bd93f9"
 red = "#ff5555"
 yellow = "#f1fa8c"
+
