@@ -20,7 +20,7 @@ symbol = ' '
 format = '[🤖 $version](bold green) '
 
 [php]
-format = '[🐘 $version](147 bold) '
+format = 'PHP [🐘 $version](147 bold) '
 
 [aws]
 style = "bold orange"
@@ -36,6 +36,7 @@ format = '⏱️  [$duration](bold yellow)'
 [git_branch]
 style = "bold pink"
 symbol = ' '
+format = 'git:\([$branch(:$remote_branch)]($style)\) '
 
 [git_state]
 format = '[\($state( $progress_current of $progress_total)\)]($style) '
@@ -45,8 +46,11 @@ cherry_pick = '[🍒 PICKING](bold red)'
 added_style = 'bold blue'
 format = '[+$added]($added_style)/[-$deleted]($deleted_style) '
 
+[git_status]
+format = '([$all_status$ahead_behind]($style) )'
+
 [docker_context]
-disabled = false
+#disabled = false
 symbol = '🐳 '
 only_with_files = true
 format = '[🐋 $context](blue bold)'
