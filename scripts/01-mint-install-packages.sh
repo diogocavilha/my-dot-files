@@ -8,6 +8,7 @@ apt install -y build-essential \
     font-manager \
     git \
     vim \
+    neovim \
     terminator \
     htop \
     rar unrar \

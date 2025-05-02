@@ -7,6 +7,7 @@ cp -vf ~/.my-dot-files/home/.gitconfig ~
 cp -vf ~/.my-dot-files/home/.bash_aliases ~
 cp -vf ~/.my-dot-files/home/.bashrc ~
 cp -vf ~/.my-dot-files/home/.vimrc ~
+cp -vf ~/.my-dot-files/home/.zshrc ~
 cp -vf ~/.my-dot-files/home/.config/starship.toml ~/.config/starship.toml
 
 mkdir -p ~/.config/terminator/
