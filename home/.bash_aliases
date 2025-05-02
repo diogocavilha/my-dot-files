@@ -31,6 +31,8 @@ alias docker-run-mysql="docker run -p 3306:3306 --name local_mysql -v ~/.docker_
 alias docker-run-postgresql="docker run -p 5433:5432 --name local_postgres -v ~/.docker_dbdata/postgresql:/var/lib/postgresql/data -e POSTGRES_PASSWORD=localhost -d postgres:10-alpine"
 alias docker-run-mongodb="docker run -p 27017:27017 -p 8089:8089 --name local_mongo_no_auth -v ~/.docker_dbdata/mongo:/data/db -d mongo:latest"
 #alias docker_run_mongodb="docker run -p 27017:27017 -p 8089:8089 --name local_mongo -v ~/.docker_dbdata/mongo:/data/db -e MONGO_INITDB_ROOT_USERNAME=root -e MONGO_INITDB_ROOT_PASSWORD=admin -d mongo:latest"
+alias dcup='docker compose up'
+alias dcps='docker compose ps'
 
 alias ggource="gource \
     --seconds-per-day 5 \
